@@ -1,11 +1,9 @@
 const CACHE_NAME = 'portfolio-v1';
 const urlsToCache = [
-  '/Personal_Portfolio/',
-  '/Personal_Portfolio/static/js/bundle.js',
-  '/Personal_Portfolio/static/css/main.css',
-  '/Personal_Portfolio/assets/',
-  '/Personal_Portfolio/public/desktop_pc/scene.gltf',
-  '/Personal_Portfolio/public/desktop_pc/scene.bin'
+  '/',
+  '/assets/',
+  '/public/desktop_pc/scene-compressed.gltf',
+  '/public/desktop_pc/scene.bin'
 ];
 
 // Install event - cache resources

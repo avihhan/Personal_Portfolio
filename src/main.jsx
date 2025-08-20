@@ -6,7 +6,7 @@ import './index.css'
 // Register service worker for caching
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/Personal_Portfolio/sw.js')
+    navigator.serviceWorker.register('/sw.js')
       .then((registration) => {
         console.log('SW registered: ', registration);
       })
