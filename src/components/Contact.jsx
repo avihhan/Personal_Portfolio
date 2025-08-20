@@ -6,9 +6,8 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
-// Formspree endpoint - replace with your actual form ID from formspree.io
-// For testing, you can use: https://formspree.io/f/xrgjqjqj
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrgjqjqj"; // Replace with your actual form ID
+// Formspree endpoint - your actual form ID
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpwlgklb";
 
 
 const Contact = () => {
