@@ -5,8 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio-Avihhan</title>
-    <script type="module" crossorigin src="/Personal_Portfolio/assets/index-68da4eb5.js"></script>
-    <link rel="stylesheet" href="/Personal_Portfolio/assets/index-430568c3.css">
+    <!-- Critical CSS for faster initial render -->
+    <style>
+      body { 
+        margin: 0; 
+        font-family: 'Poppins', sans-serif; 
+        background-color: #050816;
+        color: white;
+      }
+      .bg-primary { background-color: #050816; }
+      .animate-spin { animation: spin 1s linear infinite; }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+      }
+    </style>
+    <script type="module" crossorigin src="/Personal_Portfolio/assets/index-c076fa06.js"></script>
+    <link rel="modulepreload" crossorigin href="/Personal_Portfolio/assets/vendor-0f407798.js">
+    <link rel="modulepreload" crossorigin href="/Personal_Portfolio/assets/three-62fe19b5.js">
+    <link rel="stylesheet" href="/Personal_Portfolio/assets/index-8b2cfdf1.css">
   </head>
   <body>
     <div id="root"></div>

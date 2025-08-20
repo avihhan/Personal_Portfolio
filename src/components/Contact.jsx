@@ -1,15 +1,14 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
-//hNUpqC43Jh8yB9wqr (pk)
-//template_pxuol8e (ti)
-//service_q6goj6s (si)
+// Formspree endpoint - replace with your actual form ID from formspree.io
+// For testing, you can use: https://formspree.io/f/xrgjqjqj
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrgjqjqj"; // Replace with your actual form ID
 
 
 const Contact = () => {
@@ -32,41 +31,40 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        'service_q6goj6s',
-        'template_pxuol8e',
-        {
-          from_name: form.name,
-          to_name: "Avihhan",
-          from_email: form.email,
-          to_email: "avihhan.official@gmail.com",
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
           message: form.message,
-        },
-        'hNUpqC43Jh8yB9wqr'
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+        }),
+      });
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+      if (response.ok) {
+        setLoading(false);
+        alert("Thank you. I will get back to you as soon as possible.");
+        
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      alert("Ahh, something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -92,9 +90,9 @@ const Contact = () => {
               name='name'
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
+              placeholder="What's your name?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
+            /> 
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your email</span>

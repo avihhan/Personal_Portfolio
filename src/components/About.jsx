@@ -1,5 +1,5 @@
 import React from "react";
-import { Tilt } from "react-tilt";    
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion"
 import { styles } from "../styles";
 import { services } from "../constants";
@@ -44,9 +44,9 @@ const ServiceCard = ({ index, title, icon }) => (
 
        <motion.p
          variants={fadeIn("", "", 0.1, 1)}
-         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+         className='mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]'
        >
-         Welcome to my dynamic portfolio website, where boundless motivation, exceptional organizational skills, and multitasking prowess converge to create extraordinary results. With an open-minded and creative approach to problem-solving, I am poised to deliver innovative solutions that leave a lasting impact. Explore my portfolio and witness firsthand the power of dedication and ingenuity in transforming challenges into triumphs. Get ready to be inspired by a visionary professional who thrives on pushing the boundaries of possibility.
+         Welcome to my portfolio — a space where creativity meets precision and passion fuels innovation. I combine imaginative thinking, strong organizational skills, and a rapid learning ability to transform ideas into impactful results. With an open-minded approach to problem-solving, I strive to craft solutions that not only overcome challenges but also inspire new possibilities. Every project here reflects dedication, ingenuity, and the drive to push boundaries beyond the ordinary. Step inside and discover how challenges can become opportunities, and how vision can be turned into lasting impact.
        </motion.p>
 
        <div className='mt-20 flex flex-wrap gap-y-20 gap-x-32'>

@@ -21,10 +21,21 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import darkalpha from "./company/darkalphacapital.png";  
+import TReNDS from "./company/TReNDS.png";
+import intervalhealth from "./company/intervalhealth.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import carrent from "./optimized/carrent.webp";
+import jobit from "./optimized/jobit.webp";
+import tripguide from "./optimized/tripguide.webp";
+
+// Project images
+import bullrunCover from "./projects/optimized/bullrun-cover.webp";
+import kapstoneCover from "./projects/optimized/kapstone-cover.webp";
+import healthSyncCover from "./projects/optimized/healthSyncCover.webp";
+import mediaSync from "./projects/optimized/MediaSync.webp";
+import guestReportingSystem from "./projects/optimized/GuestReportingSystem.webp";
+import keytake from "./projects/optimized/keytake.webp";
 
 
 export {
@@ -47,9 +58,19 @@ export {
   shopify,
   starbucks,
   tesla,
+  darkalpha,
+  TReNDS,
+  intervalhealth,
   carrent,
   jobit,
   tripguide,
   java,
-  python
+  python,
+  // Project images
+  bullrunCover,
+  kapstoneCover,
+  healthSyncCover,
+  mediaSync,
+  guestReportingSystem,
+  keytake
 };

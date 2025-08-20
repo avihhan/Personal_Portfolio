@@ -27,7 +27,14 @@ const ExperienceCard = ({ experience }) => {
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className={[
+              experience.company_name === 'Dark Alpha Capital'
+                ? 'w-[155%] h-[155%] mt-2'
+                : experience.company_name === 'Interval Health'
+                  ? 'w-[160%] h-[160%]'
+                  : 'w-[80%] h-[80%]',
+              'object-contain'
+            ].join(' ')}
           />
         </div>
       }

@@ -1,18 +1,20 @@
 import { BrowserRouter } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
 import { 
-  Hero,
   Navbar,
-  About,
-  Tech,
-  Experience,
-  Works,
-  // Feedbacks,
-  Contact,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas 
 } from './components';
+
+// Lazy load heavy components
+const Hero = lazy(() => import('./components/Hero'));
+const About = lazy(() => import('./components/About'));
+const Tech = lazy(() => import('./components/Tech'));
+const Experience = lazy(() => import('./components/Experience'));
+const Works = lazy(() => import('./components/Works'));
+const Contact = lazy(() => import('./components/Contact'));
 
 const App = () => {
   return (
@@ -20,15 +22,56 @@ const App = () => {
       <div className="relative z-0 bg-primary">
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar/>
-          <Hero/>
+          <Suspense fallback={
+            <div className="h-screen flex items-center justify-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+            </div>
+          }>
+            <Hero/>
+          </Suspense>
         </div>
-        <About/>
-        <Experience/>
-        <Tech/>
-        <Works/>
+        
+        <Suspense fallback={
+          <div className="h-screen flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        }>
+          <About/>
+        </Suspense>
+        
+        <Suspense fallback={
+          <div className="h-screen flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        }>
+          <Experience/>
+        </Suspense>
+        
+        <Suspense fallback={
+          <div className="h-screen flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        }>
+          <Tech/>
+        </Suspense>
+        
+        <Suspense fallback={
+          <div className="h-screen flex items-center justify-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        }>
+          <Works/>
+        </Suspense>
+        
         {/* <Feedbacks/> */}
         <div className="relative z-0">
-          <Contact/>
+          <Suspense fallback={
+            <div className="h-screen flex items-center justify-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+            </div>
+          }>
+            <Contact/>
+          </Suspense>
           <StarsCanvas/>
         </div>
       </div>

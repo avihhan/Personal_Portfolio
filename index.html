@@ -5,6 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio-Avihhan</title>
+    <!-- Critical CSS for faster initial render -->
+    <style>
+      body { 
+        margin: 0; 
+        font-family: 'Poppins', sans-serif; 
+        background-color: #050816;
+        color: white;
+      }
+      .bg-primary { background-color: #050816; }
+      .animate-spin { animation: spin 1s linear infinite; }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
