@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { 
   Navbar,
   EarthCanvas, 
@@ -8,6 +8,7 @@ import {
   StarsCanvas 
 } from './components';
 import Media from './components/canvas/Media';
+import { checkAndUpdateVersion } from './utils/versionManager';
 
 // Lazy load heavy components
 const Hero = lazy(() => import('./components/Hero'));
@@ -18,6 +19,15 @@ const Works = lazy(() => import('./components/Works'));
 const Contact = lazy(() => import('./components/Contact'));
 
 const App = () => {
+  // Check version and clear data if needed on app launch
+  useEffect(() => {
+    const wasDataCleared = checkAndUpdateVersion();
+    
+    if (wasDataCleared) {
+      console.log('🔄 Site data cleared due to version change. Page will reload shortly...');
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
