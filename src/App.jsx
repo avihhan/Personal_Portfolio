@@ -7,6 +7,7 @@ import {
   ComputersCanvas, 
   StarsCanvas 
 } from './components';
+import Media from './components/canvas/Media';
 
 // Lazy load heavy components
 const Hero = lazy(() => import('./components/Hero'));
@@ -74,6 +75,7 @@ const App = () => {
           </Suspense>
           <StarsCanvas/>
         </div>
+        <Media />
       </div>
     </BrowserRouter>
   )

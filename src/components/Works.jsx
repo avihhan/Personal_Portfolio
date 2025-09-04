@@ -25,9 +25,9 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full h-[500px] flex flex-col'
+        className='bg-tertiary p-5 rounded-2xl w-full h-[500px] flex flex-col'
       >
-        <div className='relative w-full h-[200px] flex-shrink-0'>
+        <div className='relative w-full h-[200px] sm:h-[220px] flex-shrink-0'>
           <img
             src={image}
             alt='project_image'
@@ -70,7 +70,7 @@ const ProjectCard = ({
 
         <div className='mt-5 flex-1 flex flex-col'>
           <h3 className='text-white font-bold text-[24px] mb-2'>{name}</h3>
-          <div className='flex-1 overflow-hidden'>
+          <div className='flex-1 overflow-hidden min-h-[80px]'>
             <p 
               className='text-secondary text-[14px] leading-relaxed overflow-y-auto hover:overflow-y-scroll scrollbar-hide max-h-[120px] transition-all duration-300 ease-in-out'
             >
@@ -115,9 +115,14 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-20 grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7'>
         {projects.map((project, index) => (
-          <Suspense key={`project-${index}`} fallback={<div className="animate-pulse bg-gray-700 h-[500px] w-[360px] rounded-2xl" />}>
+          <Suspense
+            key={`project-${index}`}
+            fallback={
+              <div className="animate-pulse bg-gray-700 h-[500px] w-full rounded-2xl" />
+            }
+          >
             <ProjectCard index={index} {...project} />
           </Suspense>
         ))}

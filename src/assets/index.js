@@ -37,6 +37,11 @@ import mediaSync from "./projects/optimized/MediaSync.webp";
 import guestReportingSystem from "./projects/optimized/GuestReportingSystem.webp";
 import keytake from "./projects/optimized/keytake.webp";
 
+// Media imports
+import linkedin_icon from "./media/linkedin.png";
+import github_icon from "./media/github.png";
+import resume_icon from "./media/resume.png";
+
 
 export {
   logo,
@@ -72,5 +77,9 @@ export {
   healthSyncCover,
   mediaSync,
   guestReportingSystem,
-  keytake
+  keytake,
+  // Media imports
+  linkedin_icon,
+  github_icon,
+  resume_icon
 };
