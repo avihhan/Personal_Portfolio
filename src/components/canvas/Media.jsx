@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { linkedin_icon, github_icon, resume_icon } from '../../assets';
-import { clearAllSiteData, getCurrentVersion } from '../../utils/versionManager';
+import { clearAllSiteData, getCurrentVersion, debugStoredData, forceVersionChange } from '../../utils/versionManager';
 
 const Media = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -127,26 +127,51 @@ const Media = () => {
           </div>
         )}
 
-        {/* Development: Version info and clear data button */}
+        {/* Development: Version info and debug tools */}
         {process.env.NODE_ENV === 'development' && (
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 
+          <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 
                         flex flex-col items-center gap-2">
             <div className="text-xs text-white/60 bg-black/40 px-2 py-1 rounded">
               v{getCurrentVersion()}
             </div>
-            <button
-              onClick={() => {
-                if (window.confirm('Clear all site data and reload? (dev only)')) {
-                  clearAllSiteData();
-                  window.location.reload();
-                }
-              }}
-              className="px-2 py-1 bg-red-500 text-white text-xs rounded
-                       hover:bg-red-600 transition-colors duration-200"
-              title="Clear all site data and reload (dev only)"
-            >
-              🧹 Clear Data
-            </button>
+            
+            <div className="flex gap-2">
+              <button
+                onClick={() => debugStoredData()}
+                className="px-2 py-1 bg-blue-500 text-white text-xs rounded
+                         hover:bg-blue-600 transition-colors duration-200"
+                title="Debug stored data in console"
+              >
+                🔍 Debug
+              </button>
+              
+              <button
+                onClick={() => {
+                  if (window.confirm('Force version change for testing? (dev only)')) {
+                    forceVersionChange();
+                  }
+                }}
+                className="px-2 py-1 bg-yellow-500 text-white text-xs rounded
+                         hover:bg-yellow-600 transition-colors duration-200"
+                title="Force version change for testing"
+              >
+                🔄 Force Change
+              </button>
+              
+              <button
+                onClick={async () => {
+                  if (window.confirm('Clear all site data and reload? (dev only)')) {
+                    await clearAllSiteData();
+                    window.location.reload();
+                  }
+                }}
+                className="px-2 py-1 bg-red-500 text-white text-xs rounded
+                         hover:bg-red-600 transition-colors duration-200"
+                title="Clear all site data and reload (dev only)"
+              >
+                🧹 Clear Data
+              </button>
+            </div>
           </div>
         )}
       </div>

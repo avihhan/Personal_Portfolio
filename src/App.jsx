@@ -21,11 +21,15 @@ const Contact = lazy(() => import('./components/Contact'));
 const App = () => {
   // Check version and clear data if needed on app launch
   useEffect(() => {
-    const wasDataCleared = checkAndUpdateVersion();
+    const checkVersion = async () => {
+      const wasDataCleared = await checkAndUpdateVersion();
+      
+      if (wasDataCleared) {
+        console.log('🔄 Site data cleared due to version change. Page will reload shortly...');
+      }
+    };
     
-    if (wasDataCleared) {
-      console.log('🔄 Site data cleared due to version change. Page will reload shortly...');
-    }
+    checkVersion();
   }, []);
 
   return (
