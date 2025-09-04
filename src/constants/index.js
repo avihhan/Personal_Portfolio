@@ -28,6 +28,7 @@ import {
   mediaSync,
   guestReportingSystem,
   keytake,
+  subscriberPipeline
 } from '../assets'
 
 export const navLinks = [
@@ -203,10 +204,6 @@ const projects = [
         name: 'AI Avatar',
         color: 'pink-text-gradient'
       },     
-      {
-        name: 'Winner of Best HealthCare Hack at Hackalytics 2024 Georgia Tech!',
-        color: 'yellow-text-gradient'
-      },
     ],
     image: healthSyncCover,
     source_code_link: 'https://github.com/pramitbhatia25/HealthSync-Hackalytics2024',
@@ -274,6 +271,27 @@ const projects = [
     image: keytake,
     source_code_link: 'https://github.com/avihhan/KeyTakes',
     website_link: 'https://keytakes-app.vercel.app/'
+  },
+  {
+    name: 'Subscriber Pipeline',
+    description: "A modern emailing pipeline to collect subscribers into Google Sheets, automatically send welcome emails, and send HTML email campaigns using templates stored in Google Drive.",
+    tags: [
+      {
+        name: 'Flask',
+        color: 'blue-text-gradient'
+      },
+      {
+        name: 'Cloud Run',
+        color: 'green-text-gradient'
+      },
+      {
+        name: 'SMTP',
+        color: 'pink-text-gradient'
+      }
+    ],
+    image: subscriberPipeline,
+    source_code_link: 'https://github.com/avihhan/BR-Social-Subscriber-Pipeline',
+    website_link: 'https://github.com/avihhan/BR-Social-Subscriber-Pipeline/blob/main/README.md'
   }
 ]
 
